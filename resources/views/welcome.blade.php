@@ -14,7 +14,7 @@
         <!-- Layer tambahan untuk meningkatkan kontras di tengah -->
         <div class="absolute top-0 left-0 w-full h-full z-10" style="background: radial-gradient(circle at center, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.7) 100%);"></div>
         
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-center text-white w-[90%] max-w-[800px]">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-center text-white w-[90%] max-w-[800px] animate-fade-in-up">
             <h1 class="text-[42px] font-bold leading-tight mb-4 tracking-tight drop-shadow-2xl">Wujudkan Pengalaman Global Anda</h1>
             <p class="text-[15px] opacity-95 mb-6 leading-relaxed drop-shadow-lg">
                 Bergabung dengan KKN International di universitas mitra terkemuka dunia dan raih peluang karir global
@@ -106,6 +106,112 @@
 <style>
     .hero-slide.active { opacity: 1; }
     .slider-dot.active { background: #F9B234; width: 30px; border-radius: 5px; }
+    
+    /* Animasi Fade In Up */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .animate-fade-in-up {
+        animation: fadeInUp 1s ease-out;
+    }
+    
+    /* Animasi Float */
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+    
+    .animate-float {
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    /* Animasi Bounce In */
+    @keyframes bounceIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.3);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        70% {
+            transform: scale(0.9);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    
+    .animate-bounce-in {
+        animation: bounceIn 0.6s ease-out;
+    }
+    
+    /* Animasi Slide In dari kiri */
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .animate-slide-in-left {
+        animation: slideInLeft 0.8s ease-out;
+    }
+    
+    /* Animasi Slide In dari kanan */
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .animate-slide-in-right {
+        animation: slideInRight 0.8s ease-out;
+    }
+    
+    /* Animasi Pulse */
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+    }
+    
+    .animate-pulse-custom {
+        animation: pulse 2s ease-in-out infinite;
+    }
+    
+    /* Delay untuk animasi berurutan */
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
 </style>
 
 <!-- Latest News Section -->
@@ -113,18 +219,18 @@
 <section class="py-12 bg-white">
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center mb-8">
-            <div>
+            <div class="animate-slide-in-left">
                 <h2 class="text-3xl font-bold text-navy mb-1">Berita Terbaru</h2>
                 <p class="text-sm text-gray-600">Informasi dan update terkini seputar KKN International</p>
             </div>
-            <a href="{{ route('news.index') }}" class="px-4 py-2 text-sm font-medium text-navy border border-navy rounded hover:bg-navy hover:text-white transition-colors">
+            <a href="{{ route('news.index') }}" class="px-4 py-2 text-sm font-medium text-navy border border-navy rounded hover:bg-navy hover:text-white transition-colors animate-slide-in-right">
                 Lihat Semua <i class="fas fa-arrow-right ml-1"></i>
             </a>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            @foreach($latestNews as $news)
-            <a href="{{ route('news.show', $news->slug) }}" class="block group">
+            @foreach($latestNews as $index => $news)
+            <a href="{{ route('news.show', $news->slug) }}" class="block group animate-bounce-in delay-{{ ($index + 1) * 100 }}">
                 <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 transition-all hover:-translate-y-2 hover:shadow-xl h-full flex flex-col">
                     <div class="relative w-full h-[200px] overflow-hidden">
                         @if($news->image)
@@ -162,28 +268,30 @@
 <!-- Features -->
 <section class="py-12 bg-white">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-navy mb-2">Mengapa KKN International?</h2>
-        <p class="text-center text-sm text-gray-600 mb-8">Program yang dirancang untuk mengembangkan kompetensi global Anda</p>
+        <div class="text-center mb-8 animate-fade-in-up">
+            <h2 class="text-3xl font-bold text-navy mb-2">Mengapa KKN International?</h2>
+            <p class="text-sm text-gray-600">Program yang dirancang untuk mengembangkan kompetensi global Anda</p>
+        </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-navy">
-                <div class="w-[50px] h-[50px] rounded-lg bg-gradient-to-br from-navy to-blue-900 flex items-center justify-center mb-4">
+            <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-navy animate-bounce-in delay-100">
+                <div class="w-[50px] h-[50px] rounded-lg bg-gradient-to-br from-navy to-blue-900 flex items-center justify-center mb-4 animate-float">
                     <i class="fas fa-globe-asia text-white text-2xl"></i>
                 </div>
                 <h3 class="text-base font-semibold mb-2 text-navy">Pengalaman Global</h3>
                 <p class="text-sm text-gray-600 leading-relaxed">Belajar dan bekerja di lingkungan internasional dengan budaya beragam</p>
             </div>
             
-            <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-navy">
-                <div class="w-[50px] h-[50px] rounded-lg bg-gradient-to-br from-navy to-blue-900 flex items-center justify-center mb-4">
+            <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-navy animate-bounce-in delay-200">
+                <div class="w-[50px] h-[50px] rounded-lg bg-gradient-to-br from-navy to-blue-900 flex items-center justify-center mb-4 animate-float" style="animation-delay: 0.5s;">
                     <i class="fas fa-users text-white text-2xl"></i>
                 </div>
                 <h3 class="text-base font-semibold mb-2 text-navy">Network Profesional</h3>
                 <p class="text-sm text-gray-600 leading-relaxed">Bangun koneksi dengan mahasiswa dan profesional dari berbagai negara</p>
             </div>
             
-            <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-navy">
-                <div class="w-[50px] h-[50px] rounded-lg bg-gradient-to-br from-navy to-blue-900 flex items-center justify-center mb-4">
+            <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-navy animate-bounce-in delay-300">
+                <div class="w-[50px] h-[50px] rounded-lg bg-gradient-to-br from-navy to-blue-900 flex items-center justify-center mb-4 animate-float" style="animation-delay: 1s;">
                     <i class="fas fa-certificate text-white text-2xl"></i>
                 </div>
                 <h3 class="text-base font-semibold mb-2 text-navy">Sertifikat Resmi</h3>
@@ -196,24 +304,26 @@
 <!-- Process -->
 <section class="py-12 bg-gray-50">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-navy mb-2">Cara Mendaftar</h2>
-        <p class="text-center text-sm text-gray-600 mb-8">Proses pendaftaran yang mudah dan cepat</p>
+        <div class="text-center mb-8 animate-fade-in-up">
+            <h2 class="text-3xl font-bold text-navy mb-2">Cara Mendaftar</h2>
+            <p class="text-sm text-gray-600">Proses pendaftaran yang mudah dan cepat</p>
+        </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div class="relative p-6 bg-white rounded-lg border border-gray-200 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
-                <div class="absolute -top-2.5 left-6 w-8 h-8 rounded-md bg-gradient-to-br from-navy to-blue-900 text-white font-bold flex items-center justify-center text-sm">1</div>
+            <div class="relative p-6 bg-white rounded-lg border border-gray-200 shadow-sm transition-all hover:shadow-md hover:-translate-y-1 animate-slide-in-left delay-100">
+                <div class="absolute -top-2.5 left-6 w-8 h-8 rounded-md bg-gradient-to-br from-navy to-blue-900 text-white font-bold flex items-center justify-center text-sm animate-pulse-custom">1</div>
                 <h4 class="font-semibold mt-3 mb-1 text-[15px] text-navy">Registrasi</h4>
                 <p class="text-sm text-gray-600">Buat akun dan lengkapi data diri</p>
             </div>
             
-            <div class="relative p-6 bg-white rounded-lg border border-gray-200 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
-                <div class="absolute -top-2.5 left-6 w-8 h-8 rounded-md bg-gradient-to-br from-navy to-blue-900 text-white font-bold flex items-center justify-center text-sm">2</div>
+            <div class="relative p-6 bg-white rounded-lg border border-gray-200 shadow-sm transition-all hover:shadow-md hover:-translate-y-1 animate-fade-in-up delay-200">
+                <div class="absolute -top-2.5 left-6 w-8 h-8 rounded-md bg-gradient-to-br from-navy to-blue-900 text-white font-bold flex items-center justify-center text-sm animate-pulse-custom" style="animation-delay: 0.3s;">2</div>
                 <h4 class="font-semibold mt-3 mb-1 text-[15px] text-navy">Upload Dokumen</h4>
                 <p class="text-sm text-gray-600">Lengkapi persyaratan dokumen</p>
             </div>
             
-            <div class="relative p-6 bg-white rounded-lg border border-gray-200 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
-                <div class="absolute -top-2.5 left-6 w-8 h-8 rounded-md bg-gradient-to-br from-navy to-blue-900 text-white font-bold flex items-center justify-center text-sm">3</div>
+            <div class="relative p-6 bg-white rounded-lg border border-gray-200 shadow-sm transition-all hover:shadow-md hover:-translate-y-1 animate-slide-in-right delay-300">
+                <div class="absolute -top-2.5 left-6 w-8 h-8 rounded-md bg-gradient-to-br from-navy to-blue-900 text-white font-bold flex items-center justify-center text-sm animate-pulse-custom" style="animation-delay: 0.6s;">3</div>
                 <h4 class="font-semibold mt-3 mb-1 text-[15px] text-navy">Seleksi</h4>
                 <p class="text-sm text-gray-600">Tim akan verifikasi dan seleksi</p>
             </div>
@@ -221,65 +331,53 @@
     </div>
 </section>
 
-<!-- Partners -->
-<section class="py-12 bg-white">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-navy mb-2">Universitas Mitra</h2>
-        <p class="text-center text-sm text-gray-600 mb-8">Bermitra dengan universitas terkemuka dunia</p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="p-4 bg-white rounded-lg text-center border border-gray-200 shadow-sm transition-all hover:border-navy hover:-translate-y-1 hover:shadow-md">
-                <div class="inline-block px-2 py-0.5 bg-blue-600 text-white text-[10px] font-medium rounded mb-2">Malaysia</div>
-                <h6 class="text-sm font-semibold text-gray-800">University of Malaya</h6>
-            </div>
-            <div class="p-4 bg-white rounded-lg text-center border border-gray-200 shadow-sm transition-all hover:border-navy hover:-translate-y-1 hover:shadow-md">
-                <div class="inline-block px-2 py-0.5 bg-green-600 text-white text-[10px] font-medium rounded mb-2">Thailand</div>
-                <h6 class="text-sm font-semibold text-gray-800">Chulalongkorn Univ</h6>
-            </div>
-            <div class="p-4 bg-white rounded-lg text-center border border-gray-200 shadow-sm transition-all hover:border-navy hover:-translate-y-1 hover:shadow-md">
-                <div class="inline-block px-2 py-0.5 bg-red-600 text-white text-[10px] font-medium rounded mb-2">Singapore</div>
-                <h6 class="text-sm font-semibold text-gray-800">NUS Singapore</h6>
-            </div>
-            <div class="p-4 bg-white rounded-lg text-center border border-gray-200 shadow-sm transition-all hover:border-navy hover:-translate-y-1 hover:shadow-md">
-                <div class="inline-block px-2 py-0.5 bg-yellow-500 text-white text-[10px] font-medium rounded mb-2">Japan</div>
-                <h6 class="text-sm font-semibold text-gray-800">Waseda University</h6>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- CTA -->
-<section class="py-12 bg-gradient-to-br from-navy to-blue-900 bg-center bg-cover bg-blend-overlay text-white text-center" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80');">
-    <div class="container mx-auto px-4">
-        <h2 class="text-[32px] font-bold mb-2 tracking-tight">Siap Memulai Perjalanan Global?</h2>
-        <p class="text-[15px] opacity-90 mb-6">Daftar sekarang dan jadilah bagian dari generasi unggul</p>
-        
-        @guest
-            <div class="flex gap-3 justify-center flex-wrap">
-                <a href="{{ route('register.mahasiswa') }}" class="px-7 py-2.5 text-sm font-medium bg-white text-navy rounded hover:bg-gold hover:text-white transition-colors">
-                    <i class="fas fa-rocket mr-1"></i> Daftar Sekarang
-                </a>
-                <a href="{{ route('login') }}" class="px-7 py-2.5 text-sm font-medium border border-white text-white rounded hover:bg-white hover:text-navy transition-colors">
-                    <i class="fas fa-sign-in-alt mr-1"></i> Login
-                </a>
-            </div>
-        @else
-            @if(auth()->user()->isMahasiswa())
-                <a href="{{ route('mahasiswa.pendaftaran.create') }}" class="inline-block px-7 py-2.5 text-sm font-medium bg-white text-navy rounded hover:bg-gold hover:text-white transition-colors">
-                    <i class="fas fa-edit mr-1"></i> Daftar KKN Sekarang
-                </a>
+<section class="py-16 bg-center bg-cover text-white text-center relative overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80');">
+    <!-- Gradient Overlay yang lebih kuat untuk keterbacaan -->
+    <div class="absolute inset-0 bg-gradient-to-br from-navy/95 via-blue-900/90 to-navy/95 z-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/40 z-0"></div>
+    
+    <!-- Content -->
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="animate-fade-in-up">
+            <h2 class="text-[36px] font-bold mb-3 tracking-tight drop-shadow-lg">Siap Memulai Perjalanan Global?</h2>
+            <p class="text-[16px] mb-8 drop-shadow-md">Daftar sekarang dan jadilah bagian dari generasi unggul</p>
+            
+            @guest
+                <div class="flex gap-4 justify-center flex-wrap mb-8">
+                    <a href="{{ route('register.mahasiswa') }}" class="px-8 py-3 text-sm font-semibold bg-gold text-white rounded-lg shadow-xl hover:bg-gold/90 hover:scale-105 transition-all">
+                        <i class="fas fa-rocket mr-2"></i> Daftar Sekarang
+                    </a>
+                    <a href="{{ route('login') }}" class="px-8 py-3 text-sm font-semibold border-2 border-white text-white bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white hover:text-navy hover:scale-105 transition-all">
+                        <i class="fas fa-sign-in-alt mr-2"></i> Login
+                    </a>
+                </div>
             @else
-                <a href="{{ route('admin.dashboard') }}" class="inline-block px-7 py-2.5 text-sm font-medium bg-white text-navy rounded hover:bg-gold hover:text-white transition-colors">
-                    <i class="fas fa-tachometer-alt mr-1"></i> Dashboard
-                </a>
-            @endif
-        @endguest
-        
-        <div class="mt-6 pt-2">
-            <p class="mb-1 text-sm"><i class="fas fa-phone mr-2"></i> (024) 1234567</p>
-            <p class="mb-0 text-sm"><i class="fas fa-envelope mr-2"></i> international@usm.ac.id</p>
+                @if(auth()->user()->isMahasiswa())
+                    <div class="mb-8">
+                        <a href="{{ route('mahasiswa.pendaftaran.create') }}" class="inline-block px-8 py-3 text-sm font-semibold bg-gold text-white rounded-lg shadow-xl hover:bg-gold/90 hover:scale-105 transition-all">
+                            <i class="fas fa-edit mr-2"></i> Daftar KKN Sekarang
+                        </a>
+                    </div>
+                @else
+                    <div class="mb-8">
+                        <a href="{{ route('admin.dashboard') }}" class="inline-block px-8 py-3 text-sm font-semibold bg-gold text-white rounded-lg shadow-xl hover:bg-gold/90 hover:scale-105 transition-all">
+                            <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+                        </a>
+                    </div>
+                @endif
+            @endguest
+            
+            <div class="pt-4 border-t border-white/20 inline-block">
+                <p class="mb-2 text-sm font-medium drop-shadow-md"><i class="fas fa-phone mr-2"></i> (024) 6702757</p>
+                <p class="mb-0 text-sm font-medium drop-shadow-md"><i class="fas fa-envelope mr-2"></i> international@usm.ac.id</p>
+            </div>
         </div>
     </div>
+    
+    <!-- Decorative Elements -->
+    <div class="absolute top-10 left-10 w-20 h-20 bg-gold/20 rounded-full blur-3xl animate-pulse-custom"></div>
+    <div class="absolute bottom-10 right-10 w-32 h-32 bg-blue-400/20 rounded-full blur-3xl animate-pulse-custom" style="animation-delay: 1s;"></div>
 </section>
 
 <script>
@@ -313,6 +411,31 @@ setInterval(() => {
     currentSlideIndex++;
     showSlide(currentSlideIndex);
 }, 5000);
+
+// Intersection Observer untuk animasi saat scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe semua elemen yang perlu animasi
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.animate-fade-in-up, .animate-bounce-in, .animate-slide-in-left, .animate-slide-in-right');
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        observer.observe(el);
+    });
+});
 </script>
 
 @endsection

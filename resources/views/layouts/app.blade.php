@@ -315,24 +315,12 @@
                         <a href="https://www.instagram.com/io_usm" target="_blank" rel="noopener noreferrer" class="w-11 h-11 flex items-center justify-center bg-white/10 rounded-lg text-white text-xl hover:bg-pink-600 hover:-translate-y-1 transition-all">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@io_usm" target="_blank" rel="noopener noreferrer" class="w-11 h-11 flex items-center justify-center bg-white/10 rounded-lg text-white text-xl hover:bg-black hover:-translate-y-1 transition-all">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                        <a href="#" class="w-11 h-11 flex items-center justify-center bg-white/10 rounded-lg text-white text-xl hover:bg-blue-600 hover:-translate-y-1 transition-all">
+                        <a href="https://www.facebook.com/p/International-Office-Usm-100064186593529/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 flex items-center justify-center bg-white/10 rounded-lg text-white text-xl hover:bg-blue-600 hover:-translate-y-1 transition-all">
                             <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-11 h-11 flex items-center justify-center bg-white/10 rounded-lg text-white text-xl hover:bg-sky-500 hover:-translate-y-1 transition-all">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-11 h-11 flex items-center justify-center bg-white/10 rounded-lg text-white text-xl hover:bg-red-600 hover:-translate-y-1 transition-all">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="#" class="w-11 h-11 flex items-center justify-center bg-white/10 rounded-lg text-white text-xl hover:bg-blue-700 hover:-translate-y-1 transition-all">
-                            <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
                     <div class="space-y-2 text-white/85">
-                        <p><i class="fas fa-phone mr-2"></i> (024) 1234567</p>
+                        <p><i class="fas fa-phone mr-2"></i> (024) 6702757</p>
                         <p><i class="fas fa-envelope mr-2"></i> international@usm.ac.id</p>
                         <p><i class="fab fa-whatsapp mr-2"></i> +62 821 1021 0236</p>
                     </div>
@@ -342,7 +330,7 @@
         
         <!-- Footer Bottom -->
         <div class="bg-gold text-navy text-center py-4">
-            <p class="text-sm font-semibold m-0">Copyright © {{ date('Y') }} Office of Collaboration and International Affairs. All Rights Reserved</p>
+            <p class="text-sm font-semibold m-0">Copyright © {{ date('Y') }} International Office Universitas Semarang. All Rights Reserved</p>
         </div>
     </footer>
 
