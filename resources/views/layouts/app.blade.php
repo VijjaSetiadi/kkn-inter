@@ -285,7 +285,7 @@
                 <div class="text-center">
                     <div class="inline-block mb-4">
                         <img src="{{ asset('images/logo-international-office.png') }}" alt="Logo International Office" class="w-32 h-auto mx-auto">
-                        <div class="text-gold text-base font-semibold mt-2 tracking-wider">WORLD CLASS<br>UNIVERSITY</div>
+                        <div class="text-gold text-base font-semibold mt-2 tracking-wider">JOURNEY TO<br>EXCELLENCE</div>
                     </div>
                     <p class="font-medium mb-1">Universitas Semarang</p>
                     <p class="text-sm opacity-80">Jl. Soekarno Hatta, Tlogosari Kulon<br>Semarang, Jawa Tengah 50196</p>
@@ -312,10 +312,10 @@
                     </h6>
                     <p class="text-white/85 mb-5 leading-relaxed">Ikuti kami di media sosial untuk informasi terbaru tentang program KKN International</p>
                     <div class="flex flex-wrap gap-3 mb-5">
-                        <a href="#" class="w-11 h-11 flex items-center justify-center bg-white/10 rounded-lg text-white text-xl hover:bg-pink-600 hover:-translate-y-1 transition-all">
+                        <a href="https://www.instagram.com/io_usm" target="_blank" rel="noopener noreferrer" class="w-11 h-11 flex items-center justify-center bg-white/10 rounded-lg text-white text-xl hover:bg-pink-600 hover:-translate-y-1 transition-all">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="w-11 h-11 flex items-center justify-center bg-white/10 rounded-lg text-white text-xl hover:bg-black hover:-translate-y-1 transition-all">
+                        <a href="https://www.tiktok.com/@io_usm" target="_blank" rel="noopener noreferrer" class="w-11 h-11 flex items-center justify-center bg-white/10 rounded-lg text-white text-xl hover:bg-black hover:-translate-y-1 transition-all">
                             <i class="fab fa-tiktok"></i>
                         </a>
                         <a href="#" class="w-11 h-11 flex items-center justify-center bg-white/10 rounded-lg text-white text-xl hover:bg-blue-600 hover:-translate-y-1 transition-all">
@@ -334,7 +334,7 @@
                     <div class="space-y-2 text-white/85">
                         <p><i class="fas fa-phone mr-2"></i> (024) 1234567</p>
                         <p><i class="fas fa-envelope mr-2"></i> international@usm.ac.id</p>
-                        <p><i class="fab fa-whatsapp mr-2"></i> +62 812-3456-7890</p>
+                        <p><i class="fab fa-whatsapp mr-2"></i> +62 821 1021 0236</p>
                     </div>
                 </div>
             </div>
