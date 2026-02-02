@@ -1,34 +1,33 @@
 @extends('layouts.app')
 
-@section('title', 'Lupa Password')
+@section('title', 'Reset Password')
 
 @section('content')
-<div class="relative min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100 overflow-hidden flex items-center justify-center py-12 px-4">
+<div class="relative min-h-screen bg-gradient-to-br from-gray-50 via-green-50 to-gray-100 overflow-hidden flex items-center justify-center py-12 px-4">
     <!-- Animated Background Elements -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <!-- Rotating Globe -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[500px] text-blue-900/5 animate-spin-slow">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[500px] text-green-900/5 animate-spin-slow">
             <i class="fas fa-globe"></i>
         </div>
         
-
         <!-- Floating Icons -->
-        <div class="absolute top-[10%] left-[10%] text-[70px] text-blue-900/20 animate-float-gentle-1">
+        <div class="absolute top-[10%] left-[10%] text-[70px] text-green-900/20 animate-float-gentle-1">
             <i class="fas fa-plane"></i>
         </div>
-        <div class="absolute top-[15%] right-[15%] text-[55px] text-blue-900/20 animate-float-gentle-2">
+        <div class="absolute top-[15%] right-[15%] text-[55px] text-green-900/20 animate-float-gentle-2">
             <i class="fas fa-globe"></i>
         </div>
-        <div class="absolute bottom-[20%] left-[8%] text-[65px] text-blue-900/20 animate-float-gentle-3">
+        <div class="absolute bottom-[20%] left-[8%] text-[65px] text-green-900/20 animate-float-gentle-3">
             <i class="fas fa-plane"></i>
         </div>
-        <div class="absolute bottom-[15%] right-[12%] text-[50px] text-blue-900/20 animate-float-gentle-4">
+        <div class="absolute bottom-[15%] right-[12%] text-[50px] text-green-900/20 animate-float-gentle-4">
             <i class="fas fa-globe-asia"></i>
         </div>
-        <div class="absolute top-1/2 left-[5%] text-[60px] text-blue-900/20 animate-float-gentle-5">
+        <div class="absolute top-1/2 left-[5%] text-[60px] text-green-900/20 animate-float-gentle-5">
             <i class="fas fa-plane-departure"></i>
         </div>
-        <div class="absolute top-1/2 right-[5%] text-[55px] text-blue-900/20 animate-float-gentle-6">
+        <div class="absolute top-1/2 right-[5%] text-[55px] text-green-900/20 animate-float-gentle-6">
             <i class="fas fa-globe-americas"></i>
         </div>
     </div>
@@ -37,28 +36,28 @@
     <div class="relative z-20 w-full max-w-sm animate-fade-in-up">
         <div class="bg-white rounded-lg shadow-2xl overflow-hidden border border-gray-200 animate-float">
             <!-- Passport Stamps -->
-            <div class="absolute -top-2 -right-2 px-4 py-2 bg-white border-2 border-blue-900 rounded text-xs font-bold text-blue-900 transform rotate-[-15deg] opacity-15 z-[-1] animate-stamp-appear">
+            <div class="absolute -top-2 -right-2 px-4 py-2 bg-white border-2 border-green-900 rounded text-xs font-bold text-green-900 transform rotate-[-15deg] opacity-15 z-[-1] animate-stamp-appear">
                 INTERNATIONAL
             </div>
-            <div class="absolute -bottom-2 -left-2 px-4 py-2 bg-white border-2 border-blue-900 rounded text-xs font-bold text-blue-900 transform rotate-[15deg] opacity-15 z-[-1] animate-stamp-appear-delayed">
+            <div class="absolute -bottom-2 -left-2 px-4 py-2 bg-white border-2 border-green-900 rounded text-xs font-bold text-green-900 transform rotate-[15deg] opacity-15 z-[-1] animate-stamp-appear-delayed">
                 INTERNATIONAL
             </div>
 
             <!-- Header -->
-            <div class="bg-gradient-to-br from-blue-900 to-blue-800 py-10 px-6 text-center relative overflow-hidden">
-                <!-- Rotating Key Icon -->
+            <div class="bg-gradient-to-br from-green-600 to-green-700 py-10 px-6 text-center relative overflow-hidden">
+                <!-- Rotating Lock Icon -->
                 <div class="inline-block text-5xl text-yellow-500 mb-3 animate-spin-slow-header">
-                    <i class="fas fa-key"></i>
+                    <i class="fas fa-lock-open"></i>
                 </div>
                 
                 <h1 class="text-2xl font-bold text-white mb-1 drop-shadow-lg">
-                    Lupa Password?
+                    Reset Password
                 </h1>
                 <p class="text-sm text-white/90">
-                    Reset Password Anda
+                    Buat Password Baru Anda
                 </p>
 
-                <!-- Language Icons -->
+                <!-- Security Icons -->
                 <div class="flex justify-center gap-4 mt-3">
                     <span class="text-xl text-yellow-500 animate-language-float-1">
                         <i class="fas fa-lock"></i>
@@ -81,40 +80,32 @@
             <!-- Body -->
             <div class="p-6">
                 <!-- Info Alert -->
-                <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-5 flex items-start gap-3">
-                    <i class="fas fa-info-circle text-blue-600 text-lg mt-0.5"></i>
-                    <p class="flex-1 text-sm text-blue-800 font-medium m-0 leading-relaxed">
-                        Masukkan email Anda dan kami akan mengirimkan link untuk reset password.
+                <div class="bg-green-50 border border-green-200 rounded-lg p-3 mb-5 flex items-start gap-3">
+                    <i class="fas fa-info-circle text-green-600 text-lg mt-0.5"></i>
+                    <p class="flex-1 text-sm text-green-800 font-medium m-0 leading-relaxed">
+                        Masukkan email dan password baru Anda untuk mengatur ulang password.
                     </p>
                 </div>
 
-                <!-- Session Status Alert -->
-                @if (session('status'))
-                    <div class="bg-green-50 border border-green-200 rounded-lg p-3 mb-5 flex items-center gap-3 animate-slide-in-down">
-                        <i class="fas fa-check-circle text-green-600 text-lg"></i>
-                        <p class="flex-1 text-sm text-green-800 font-medium m-0">{{ session('status') }}</p>
-                        <button type="button" onclick="this.parentElement.remove()" class="text-green-600 hover:text-green-800 transition-colors">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                @endif
-
-                <form method="POST" action="{{ route('password.email') }}">
+                <form method="POST" action="{{ route('password.store') }}">
                     @csrf
 
+                    {{-- Password Reset Token --}}
+                    <input type="hidden" name="token" value="{{ $request->route('token') }}">
+
                     <!-- Email -->
-                    <div class="mb-5">
+                    <div class="mb-4">
                         <label for="email" class="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                            <i class="fas fa-envelope text-blue-900 text-xs"></i>
+                            <i class="fas fa-envelope text-green-600 text-xs"></i>
                             Email
                         </label>
                         <input 
                             type="email" 
-                            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-900 focus:ring-4 focus:ring-blue-100 transition-all @error('email') border-red-500 bg-red-50 @enderror" 
+                            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-green-600 focus:ring-4 focus:ring-green-100 transition-all @error('email') border-red-500 bg-red-50 @enderror" 
                             id="email" 
                             name="email" 
-                            value="{{ old('email') }}" 
-                            placeholder="Masukkan email terdaftar Anda"
+                            value="{{ old('email', $request->email) }}" 
+                            placeholder="Masukkan email Anda"
                             required 
                             autofocus
                         >
@@ -125,17 +116,54 @@
                         @enderror
                     </div>
 
+                    <!-- Password -->
+                    <div class="mb-4">
+                        <label for="password" class="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-lock text-green-600 text-xs"></i>
+                            Password Baru
+                        </label>
+                        <input 
+                            type="password" 
+                            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-green-600 focus:ring-4 focus:ring-green-100 transition-all @error('password') border-red-500 bg-red-50 @enderror" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Min. 8 karakter"
+                            required
+                        >
+                        @error('password')
+                            <div class="mt-2 text-xs text-red-600 font-medium">
+                                <i class="fas fa-exclamation-circle mr-1"></i>{{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="mb-5">
+                        <label for="password_confirmation" class="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-check-circle text-green-600 text-xs"></i>
+                            Konfirmasi Password
+                        </label>
+                        <input 
+                            type="password" 
+                            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-green-600 focus:ring-4 focus:ring-green-100 transition-all" 
+                            id="password_confirmation" 
+                            name="password_confirmation" 
+                            placeholder="Ulangi password baru"
+                            required
+                        >
+                    </div>
+
                     <!-- Submit Button -->
                     <button 
                         type="submit" 
-                        class="w-full py-3 px-4 bg-gradient-to-r from-blue-900 to-blue-800 text-white font-bold rounded-lg text-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 animate-button-shine"
+                        class="w-full py-3 px-4 bg-gradient-to-r from-green-600 to-green-700 text-white font-bold rounded-lg text-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 animate-button-shine"
                     >
-                        <i class="fas fa-paper-plane mr-2"></i>Kirim Link Reset Password
+                        <i class="fas fa-save mr-2"></i>Reset Password
                     </button>
 
                     <!-- Back to Login -->
                     <div class="text-center mt-4">
-                        <a href="{{ route('login') }}" class="text-sm font-semibold text-blue-900 hover:text-yellow-600 transition-colors">
+                        <a href="{{ route('login') }}" class="text-sm font-semibold text-green-600 hover:text-yellow-600 transition-colors">
                             <i class="fas fa-arrow-left mr-1 text-xs"></i>Kembali ke Login
                         </a>
                     </div>
@@ -146,7 +174,7 @@
             <div class="bg-gray-50 border-t border-gray-200 py-5 px-6 text-center">
                 <p class="text-sm text-gray-600 m-0">
                     Belum punya akun? 
-                    <a href="{{ route('register.mahasiswa') }}" class="font-bold text-blue-900 hover:text-yellow-600 transition-colors">
+                    <a href="{{ route('register.mahasiswa') }}" class="font-bold text-green-600 hover:text-yellow-600 transition-colors">
                         Daftar Sekarang
                     </a>
                 </p>
@@ -232,17 +260,6 @@
         100% { opacity: 0.15; transform: scale(1) rotate(-15deg); }
     }
 
-    @keyframes slide-in-down {
-        from {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
     @keyframes button-shine {
         0% { background-position: -200% 0; }
         100% { background-position: 200% 0; }
@@ -314,10 +331,6 @@
 
     .animate-stamp-appear-delayed {
         animation: stamp-appear 1s ease-out 0.6s both;
-    }
-
-    .animate-slide-in-down {
-        animation: slide-in-down 0.5s ease-out;
     }
 
     .animate-button-shine {
